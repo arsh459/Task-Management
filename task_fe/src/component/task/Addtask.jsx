@@ -27,7 +27,7 @@ const Addtask = ({ setTasks, tasks }) => {
     labels: "",
     creatorName: "",
   })
-  let url = "http://localhost:8000/api"
+  let url = "https://tasty-cyan-fatigues.cyclic.app/api"
 
   useEffect(() => {
     setUsername(JSON.parse(localStorage.getItem("auth")).name)

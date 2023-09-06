@@ -34,7 +34,7 @@ const SignUpForm = ({ setUserInfo }) => {
   const [email, setEmail] = useState("")
   const [password, setPassword] = useState("")
   const navigate = useNavigate()
-  let url = "http://localhost:8000/api"
+  let url = "https://tasty-cyan-fatigues.cyclic.app/api"
 
   function handleRegister() {
     if (name !== "" && email !== "" && password !== "") {

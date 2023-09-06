@@ -30,7 +30,7 @@ import axios from "axios"
 const AddMember = ({ task, setUpdate }) => {
   const { isOpen, onOpen, onClose } = useDisclosure()
   const [users, setUsers] = useState([])
-  let url = "http://localhost:8000/api"
+  let url = "https://tasty-cyan-fatigues.cyclic.app/api"
 
   function addUser(userId, username) {
     console.log("userId", userId)

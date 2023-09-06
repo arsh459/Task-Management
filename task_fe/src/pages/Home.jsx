@@ -13,7 +13,7 @@ export default function Home() {
   useEffect(() => {
     const token = JSON.parse(localStorage.getItem("auth")).token
     axios
-      .get(`http://localhost:8000/api/tasks/unassigned`, {
+      .get(`https://tasty-cyan-fatigues.cyclic.app/api/tasks/unassigned`, {
         headers: { Authorization: `Bearer ${token}` },
       })
       .then((res) => {
@@ -26,7 +26,7 @@ export default function Home() {
   useEffect(() => {
     const token = JSON.parse(localStorage.getItem("auth")).token
     axios
-      .get(`http://localhost:8000/api/tasks/assigned`, {
+      .get(`https://tasty-cyan-fatigues.cyclic.app/api/tasks/assigned`, {
         headers: { Authorization: `Bearer ${token}` },
       })
       .then((res) => {

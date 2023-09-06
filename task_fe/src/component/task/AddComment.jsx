@@ -35,7 +35,7 @@ import axios from "axios"
 const AddComment = ({ task, setUpdate }) => {
   const { isOpen, onOpen, onClose } = useDisclosure()
   const [input, setInput] = useState("")
-  let url = "http://localhost:8000/api"
+  let url = "https://tasty-cyan-fatigues.cyclic.app/api"
 
   function addComment() {
     if (input !== "") {

@@ -30,7 +30,7 @@ const LogInForm = ({ setUserInfo }) => {
   const [password, setPassword] = useState("")
   const [loginData, setLoginData] = useState({ email: "", password: "" })
   const navigate = useNavigate()
-  let url = "http://localhost:8000/api"
+  let url = "https://tasty-cyan-fatigues.cyclic.app/api"
 
   function handleLogin() {
     setLoginData({ email: email, password: password })
