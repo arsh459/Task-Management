@@ -35,6 +35,7 @@ const SignUpForm = ({ setUserInfo }) => {
   const [password, setPassword] = useState("")
   const navigate = useNavigate()
   let url = "https://tasty-cyan-fatigues.cyclic.app/api"
+  // let url = "http://localhost:8000/api"
 
   function handleRegister() {
     if (name !== "" && email !== "" && password !== "") {
@@ -77,9 +78,9 @@ const SignUpForm = ({ setUserInfo }) => {
         </Text>
         <Stack w={"100%"} spacing={4}>
           <InputGroup>
-            <InputLeftElement>
+            {/* <InputLeftElement>
               <BsFillPersonFill color="gray.300" />
-            </InputLeftElement>
+            </InputLeftElement> */}
             <Input
               type="text"
               placeholder="Enter your name"
@@ -91,9 +92,9 @@ const SignUpForm = ({ setUserInfo }) => {
           </InputGroup>
 
           <InputGroup>
-            <InputLeftElement>
+            {/* <InputLeftElement>
               <SiGmail color="gray.300" />
-            </InputLeftElement>
+            </InputLeftElement> */}
             <Input
               type="email"
               placeholder="Enter your Email Address"
@@ -105,9 +106,9 @@ const SignUpForm = ({ setUserInfo }) => {
           </InputGroup>
 
           <InputGroup>
-            <InputLeftElement>
+            {/* <InputLeftElement>
               <MdPassword color="gray.300" />
-            </InputLeftElement>
+            </InputLeftElement> */}
             <Input
               type="password"
               placeholder="Enter your password"

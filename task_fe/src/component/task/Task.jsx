@@ -1,11 +1,9 @@
 import {
   Card,
-  CardHeader,
   Checkbox,
   CardBody,
   CardFooter,
   Box,
-  Image,
   Stack,
   Heading,
   Text,
@@ -15,15 +13,10 @@ import {
 } from "@chakra-ui/react"
 import AddMember from "./AddMember"
 import AddComment from "./AddComment"
+
 export default function Task({ task, setUpdate }) {
   return (
-    <Card
-      // direction={{ base: "column", sm: "row" }}
-      overflow="hidden"
-      variant="outline"
-      w={"100%"}
-      mt={5}
-    >
+    <Card overflow="hidden" variant="outline" w={"100%"} mt={5}>
       <Stack>
         <CardBody p={10} mb={"-30px"}>
           <Heading size="md">{task.name}</Heading>

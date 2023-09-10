@@ -15,14 +15,7 @@ export default function RouteComp({ setUserInfo, userInfo }) {
           </PrivateRoute>
         }
       />
-      <Route
-        path="/login"
-        element={
-          <>
-            <Login setUserInfo={setUserInfo} />
-          </>
-        }
-      />
+      <Route path="/login" element={<Login setUserInfo={setUserInfo} />} />
     </Routes>
   )
 }

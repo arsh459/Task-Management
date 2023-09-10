@@ -1,7 +1,5 @@
-import { Box, Button, Flex, Text } from "@chakra-ui/react"
+import { Button, Flex, Text } from "@chakra-ui/react"
 import React from "react"
-import SignUpForm from "../login/SignUpForm"
-import LogInForm from "../login/LogInForm"
 import { useNavigate } from "react-router-dom"
 
 const Navbar = ({ setUserInfo, userInfo }) => {
@@ -14,12 +12,10 @@ const Navbar = ({ setUserInfo, userInfo }) => {
   return (
     <>
       <Flex
-        // bg={"#0C356A"}
         bg={"#053B50"}
         position={"sticky"}
         top={"0"}
         h={"12vh"}
-        // overflow={"hidden"}
         style={{ zIndex: "2" }}
       >
         <Flex

@@ -15,27 +15,39 @@ import {
   Box,
   Text,
   Stack,
+  Card,
+  CardHeader,
+  CardBody,
+  Avatar,
 } from "@chakra-ui/react"
-import { Card, CardHeader, CardBody, CardFooter } from "@chakra-ui/react"
 import {
-  Menu,
-  MenuButton,
-  MenuList,
-  MenuItem,
-  MenuItemOption,
-  MenuGroup,
-  MenuOptionGroup,
-  MenuDivider,
+  StructuredList,
+  StructuredListHeader,
+  StructuredListItem,
+  StructuredListIcon,
+  StructuredListButton,
+  StructuredListCell,
+} from "@saas-ui/react"
+import {
+  Drawer,
+  DrawerBody,
+  DrawerFooter,
+  DrawerHeader,
+  DrawerOverlay,
+  DrawerContent,
+  DrawerCloseButton,
 } from "@chakra-ui/react"
 
 import { useState } from "react"
-import { useEffect } from "react"
-import { AiFillCaretDown } from "react-icons/ai"
 import axios from "axios"
 const AddComment = ({ task, setUpdate }) => {
   const { isOpen, onOpen, onClose } = useDisclosure()
   const [input, setInput] = useState("")
+  const btnRef = React.useRef()
+  const scrollRef = React.useRef()
+
   let url = "https://tasty-cyan-fatigues.cyclic.app/api"
+  // let url = "http://localhost:8000/api"
 
   function addComment() {
     if (input !== "") {
@@ -68,9 +80,79 @@ const AddComment = ({ task, setUpdate }) => {
 
   return (
     <>
-      <Button onClick={onOpen}>View Comments</Button>
+      {/* <Button onClick={onOpen}>View Comments</Button> */}
 
-      <Modal isOpen={isOpen} onClose={onClose}>
+      <Button
+        ref={btnRef}
+        colorScheme="teal"
+        onClick={(e) => {
+          onOpen(e)
+        }}
+      >
+        View Comments
+      </Button>
+      <Drawer
+        isOpen={isOpen}
+        placement="right"
+        onClose={onClose}
+        finalFocusRef={btnRef}
+        size="md"
+      >
+        <DrawerOverlay />
+        <DrawerContent>
+          <DrawerCloseButton />
+          <DrawerHeader>Comments</DrawerHeader>
+
+          <DrawerBody>
+            {task.comments.length !== 0 && (
+              <Card
+                width="100%"
+                mb={4}
+                overflowY={"auto"}
+                overflowX={"hidden"}
+                height="72vh"
+              >
+                <StructuredList>
+                  {task.comments.map((comment) => {
+                    return (
+                      <StructuredListItem ml={4} mb={4}>
+                        <StructuredListCell width="14">
+                          <Avatar name={comment.name} size="sm" />
+                        </StructuredListCell>
+                        <StructuredListCell flex="1">
+                          <Text fontWeight="bold">{comment.name}</Text>
+                          <Text fontSize="sm" color="muted" noOfLines={6}>
+                            {comment.text}
+                          </Text>
+                        </StructuredListCell>
+                      </StructuredListItem>
+                    )
+                  })}
+                </StructuredList>
+              </Card>
+            )}
+            <Input
+              type="text"
+              value={input}
+              placeholder="Add your Comments"
+              onChange={(e) => {
+                setInput(e.target.value)
+              }}
+            />
+          </DrawerBody>
+
+          <DrawerFooter>
+            <Button variant="outline" mr={3} onClick={onClose}>
+              Cancel
+            </Button>
+            <Button colorScheme="blue" onClick={addComment}>
+              Save
+            </Button>
+          </DrawerFooter>
+        </DrawerContent>
+      </Drawer>
+
+      {/* <Modal isOpen={isOpen} onClose={onClose}>
         <ModalOverlay />
         <ModalContent>
           <ModalHeader>View Comments</ModalHeader>
@@ -121,7 +203,7 @@ const AddComment = ({ task, setUpdate }) => {
             </Button>
           </ModalFooter>
         </ModalContent>
-      </Modal>
+      </Modal> */}
     </>
   )
 }

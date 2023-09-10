@@ -1,8 +1,7 @@
 import Navbar from "./component/navbar/Navbar"
 import { Box } from "@chakra-ui/react"
 import RouteComp from "./routes/Route"
-import { useState } from "react"
-import { useEffect } from "react"
+import { useState, useEffect } from "react"
 
 function App() {
   const [userInfo, setUserInfo] = useState({})

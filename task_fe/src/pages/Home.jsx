@@ -1,19 +1,20 @@
-import { Box, useSafeLayoutEffect, VStack, Flex } from "@chakra-ui/react"
+import { Box, VStack } from "@chakra-ui/react"
 import Addtask from "../component/task/Addtask"
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import TaskViewer from "../component/task/TaskViewer"
-import { useEffect } from "react"
 import axios from "axios"
 
 export default function Home() {
   const [tasks, setTasks] = useState([])
   const [assignedtasks, setAssignedTasks] = useState([])
   const [update, setUpdate] = useState(false)
+  // let url = "http://localhost:8000"
+  let url = "https://tasty-cyan-fatigues.cyclic.app"
 
   useEffect(() => {
     const token = JSON.parse(localStorage.getItem("auth")).token
     axios
-      .get(`https://tasty-cyan-fatigues.cyclic.app/api/tasks/unassigned`, {
+      .get(`${url}/api/tasks/unassigned`, {
         headers: { Authorization: `Bearer ${token}` },
       })
       .then((res) => {
@@ -26,7 +27,7 @@ export default function Home() {
   useEffect(() => {
     const token = JSON.parse(localStorage.getItem("auth")).token
     axios
-      .get(`https://tasty-cyan-fatigues.cyclic.app/api/tasks/assigned`, {
+      .get(`${url}/api/tasks/assigned`, {
         headers: { Authorization: `Bearer ${token}` },
       })
       .then((res) => {
@@ -35,6 +36,7 @@ export default function Home() {
       })
       .catch((err) => alert(err.message))
   }, [update])
+
   return (
     <Box m="auto" mt={5}>
       <VStack spacing={6}>

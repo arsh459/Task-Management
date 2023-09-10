@@ -9,28 +9,33 @@ import {
   ModalCloseButton,
   Button,
   useDisclosure,
-  Input,
   Stack,
-} from "@chakra-ui/react"
-import {
   Menu,
   MenuButton,
   MenuList,
   MenuItem,
-  MenuItemOption,
-  MenuGroup,
-  MenuOptionGroup,
-  MenuDivider,
+  Card,
+  Avatar,
 } from "@chakra-ui/react"
+import { Box, Text, Tag } from "@chakra-ui/react"
+import {
+  StructuredList,
+  StructuredListHeader,
+  StructuredListItem,
+  StructuredListIcon,
+  StructuredListButton,
+  StructuredListCell,
+} from "@saas-ui/react"
 
-import { useState } from "react"
-import { useEffect } from "react"
+import { useState, useEffect } from "react"
 import { AiFillCaretDown } from "react-icons/ai"
 import axios from "axios"
+
 const AddMember = ({ task, setUpdate }) => {
   const { isOpen, onOpen, onClose } = useDisclosure()
   const [users, setUsers] = useState([])
   let url = "https://tasty-cyan-fatigues.cyclic.app/api"
+  // let url = "http://localhost:8000/api"
 
   function addUser(userId, username) {
     console.log("userId", userId)
@@ -75,8 +80,44 @@ const AddMember = ({ task, setUpdate }) => {
           <ModalHeader>Add Member</ModalHeader>
           <ModalCloseButton />
           <ModalBody>
-            <Stack spacing={5}>
-              <Menu>
+            <Stack>
+              <Card width="100%">
+                <StructuredList pl={6} pr={6}>
+                  <StructuredListHeader>Users</StructuredListHeader>
+                  {users.map((user) => {
+                    return (
+                      <StructuredListItem pb={2}>
+                        <StructuredListCell width="14">
+                          <Avatar name={user.name} size="sm" />
+                        </StructuredListCell>
+                        <StructuredListCell flex="1">
+                          <Text fontWeight="bold">{user.name}</Text>
+                          <Text fontSize="sm" color="muted">
+                            {user.email}
+                          </Text>
+                        </StructuredListCell>
+                        <StructuredListCell>
+                          <Tag
+                            cursor={"pointer"}
+                            data-id={user._id}
+                            data-name={user.name}
+                            onClick={(e) => {
+                              addUser(
+                                e.target.getAttribute("data-id"),
+                                e.target.getAttribute("data-name")
+                              )
+                            }}
+                          >
+                            Add Member
+                          </Tag>
+                        </StructuredListCell>
+                      </StructuredListItem>
+                    )
+                  })}
+                </StructuredList>
+              </Card>
+
+              {/* <Menu>
                 <MenuButton as={Button} rightIcon={<AiFillCaretDown />}>
                   Add Members
                 </MenuButton>
@@ -95,7 +136,7 @@ const AddMember = ({ task, setUpdate }) => {
                     )
                   })}
                 </MenuList>
-              </Menu>
+              </Menu> */}
             </Stack>
           </ModalBody>
 

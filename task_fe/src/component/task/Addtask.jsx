@@ -1,4 +1,3 @@
-import React from "react"
 import {
   Modal,
   ModalOverlay,
@@ -12,9 +11,10 @@ import {
   Input,
   Stack,
 } from "@chakra-ui/react"
-import { useState } from "react"
-import { useEffect } from "react"
+import { useState, useEffect } from "react"
+
 import axios from "axios"
+
 const Addtask = ({ setTasks, tasks }) => {
   const { isOpen, onOpen, onClose } = useDisclosure()
   const [username, setUsername] = useState("")
@@ -28,6 +28,7 @@ const Addtask = ({ setTasks, tasks }) => {
     creatorName: "",
   })
   let url = "https://tasty-cyan-fatigues.cyclic.app/api"
+  // let url = "http://localhost:8000/api"
 
   useEffect(() => {
     setUsername(JSON.parse(localStorage.getItem("auth")).name)

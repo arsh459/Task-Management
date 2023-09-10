@@ -1,16 +1,4 @@
-import {
-  Card,
-  CardHeader,
-  CardBody,
-  CardFooter,
-  Box,
-  Image,
-  Stack,
-  Heading,
-  Text,
-  Button,
-  VStack,
-} from "@chakra-ui/react"
+import { Box, Heading } from "@chakra-ui/react"
 import Task from "./Task"
 export default function TaskViewer({
   setTasks,

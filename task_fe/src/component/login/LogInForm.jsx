@@ -31,6 +31,7 @@ const LogInForm = ({ setUserInfo }) => {
   const [loginData, setLoginData] = useState({ email: "", password: "" })
   const navigate = useNavigate()
   let url = "https://tasty-cyan-fatigues.cyclic.app/api"
+  // let url = "http://localhost:8000/api"
 
   function handleLogin() {
     setLoginData({ email: email, password: password })
@@ -67,9 +68,9 @@ const LogInForm = ({ setUserInfo }) => {
         </Text>
         <Stack w={"100%"} spacing={4}>
           <InputGroup>
-            <InputLeftElement>
+            {/* <InputLeftElement>
               <SiGmail color="gray.300" />
-            </InputLeftElement>
+            </InputLeftElement> */}
             <Input
               type="email"
               placeholder="Enter your email address"
@@ -81,9 +82,9 @@ const LogInForm = ({ setUserInfo }) => {
           </InputGroup>
 
           <InputGroup>
-            <InputLeftElement>
+            {/* <InputLeftElement>
               <MdPassword color="gray.300" />
-            </InputLeftElement>
+            </InputLeftElement> */}
             <Input
               type="password"
               placeholder="Enter your password"
