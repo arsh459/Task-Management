@@ -68,9 +68,6 @@ const LogInForm = ({ setUserInfo }) => {
         </Text>
         <Stack w={"100%"} spacing={4}>
           <InputGroup>
-            {/* <InputLeftElement>
-              <SiGmail color="gray.300" />
-            </InputLeftElement> */}
             <Input
               type="email"
               placeholder="Enter your email address"
@@ -82,9 +79,6 @@ const LogInForm = ({ setUserInfo }) => {
           </InputGroup>
 
           <InputGroup>
-            {/* <InputLeftElement>
-              <MdPassword color="gray.300" />
-            </InputLeftElement> */}
             <Input
               type="password"
               placeholder="Enter your password"
@@ -97,7 +91,7 @@ const LogInForm = ({ setUserInfo }) => {
 
           <Box>
             <Button
-              bg={"#1273EB"}
+              bg={"#126bd8"}
               w={"100%"}
               color={"white"}
               onClick={handleLogin}

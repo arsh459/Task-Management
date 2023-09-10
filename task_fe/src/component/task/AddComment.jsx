@@ -80,8 +80,6 @@ const AddComment = ({ task, setUpdate }) => {
 
   return (
     <>
-      {/* <Button onClick={onOpen}>View Comments</Button> */}
-
       <Button
         ref={btnRef}
         colorScheme="teal"
@@ -151,59 +149,6 @@ const AddComment = ({ task, setUpdate }) => {
           </DrawerFooter>
         </DrawerContent>
       </Drawer>
-
-      {/* <Modal isOpen={isOpen} onClose={onClose}>
-        <ModalOverlay />
-        <ModalContent>
-          <ModalHeader>View Comments</ModalHeader>
-          <ModalCloseButton />
-          <ModalBody>
-            <Stack spacing={5}>
-              <Card>
-                <CardHeader>
-                  <Heading size="md">Comments</Heading>
-                </CardHeader>
-
-                <CardBody>
-                  <Stack divider={<StackDivider />} spacing="4">
-                    {task.comments.map((comment) => {
-                      return (
-                        <Box>
-                          <Heading size="xs" textTransform="uppercase">
-                            {comment.name}
-                          </Heading>
-                          <Text pt="2" fontSize="sm">
-                            {comment.text}
-                          </Text>
-                        </Box>
-                      )
-                    })}
-                    <Box>
-                      <Input
-                        type="text"
-                        value={input}
-                        placeholder="Add your Comments"
-                        onChange={(e) => {
-                          setInput(e.target.value)
-                        }}
-                      />
-                    </Box>
-                  </Stack>
-                </CardBody>
-              </Card>
-            </Stack>
-          </ModalBody>
-
-          <ModalFooter>
-            <Button colorScheme="blue" mr={3} onClick={onClose}>
-              Close
-            </Button>
-            <Button variant="ghost" onClick={addComment}>
-              Add Comment
-            </Button>
-          </ModalFooter>
-        </ModalContent>
-      </Modal> */}
     </>
   )
 }

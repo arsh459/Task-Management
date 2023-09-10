@@ -57,6 +57,7 @@ const AddMember = ({ task, setUpdate }) => {
       )
       .then((res) => {
         setUpdate((prev) => !prev)
+        onClose()
       })
   }
 
@@ -81,7 +82,7 @@ const AddMember = ({ task, setUpdate }) => {
           <ModalCloseButton />
           <ModalBody>
             <Stack>
-              <Card width="100%">
+              <Card width="100%" height={"70vh"} overflowY={"auto"}>
                 <StructuredList pl={6} pr={6}>
                   <StructuredListHeader>Users</StructuredListHeader>
                   {users.map((user) => {
@@ -116,27 +117,6 @@ const AddMember = ({ task, setUpdate }) => {
                   })}
                 </StructuredList>
               </Card>
-
-              {/* <Menu>
-                <MenuButton as={Button} rightIcon={<AiFillCaretDown />}>
-                  Add Members
-                </MenuButton>
-                <MenuList>
-                  {users.map((user) => {
-                    return (
-                      <MenuItem
-                        onClick={(e) => {
-                          addUser(e.target.name, e.target.value)
-                        }}
-                        value={user.name}
-                        name={user._id}
-                      >
-                        {user.name}
-                      </MenuItem>
-                    )
-                  })}
-                </MenuList>
-              </Menu> */}
             </Stack>
           </ModalBody>
 
@@ -144,7 +124,6 @@ const AddMember = ({ task, setUpdate }) => {
             <Button colorScheme="blue" mr={3} onClick={onClose}>
               Close
             </Button>
-            <Button variant="ghost">Add Member</Button>
           </ModalFooter>
         </ModalContent>
       </Modal>

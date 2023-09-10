@@ -78,9 +78,6 @@ const SignUpForm = ({ setUserInfo }) => {
         </Text>
         <Stack w={"100%"} spacing={4}>
           <InputGroup>
-            {/* <InputLeftElement>
-              <BsFillPersonFill color="gray.300" />
-            </InputLeftElement> */}
             <Input
               type="text"
               placeholder="Enter your name"
@@ -92,9 +89,6 @@ const SignUpForm = ({ setUserInfo }) => {
           </InputGroup>
 
           <InputGroup>
-            {/* <InputLeftElement>
-              <SiGmail color="gray.300" />
-            </InputLeftElement> */}
             <Input
               type="email"
               placeholder="Enter your Email Address"
@@ -106,9 +100,6 @@ const SignUpForm = ({ setUserInfo }) => {
           </InputGroup>
 
           <InputGroup>
-            {/* <InputLeftElement>
-              <MdPassword color="gray.300" />
-            </InputLeftElement> */}
             <Input
               type="password"
               placeholder="Enter your password"
@@ -121,7 +112,7 @@ const SignUpForm = ({ setUserInfo }) => {
 
           <Box>
             <Button
-              bg={"#1273EB"}
+              bg={"#126bd8"}
               w={"100%"}
               color={"white"}
               onClick={handleRegister}
